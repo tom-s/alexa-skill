@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "stage-0",
+    "latest"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-runtime",
+    "add-module-exports"
+  ]
+}

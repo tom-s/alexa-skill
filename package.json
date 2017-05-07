@@ -1,0 +1,35 @@
+{
+  "name": "claudia-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "files": [
+    "bin"
+  ],
+  "dependencies": {
+    "claudia-bot-builder": "^2.15.0",
+    "json-stringify": "^1.0.0",
+    "lodash.get": "^4.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.8.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-runtime": "^6.6.1",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "build": "babel src --out-dir bin",
+    "copy:conf": "cp claudia.json bin/claudia.json && cp package.json bin/package.json",
+    "claudia:prepare": "npm run copy:conf && npm run build",
+    "claudia:create": "npm run claudia:prepare && cd bin && claudia create --configure-alexa-skill --region us-east-1 --api-module bot --cache-api-config apiConfig",
+    "claudia:update": "npm run claudia:prepare && cd bin && claudia update --cache-api-config apiConfig"
+  },
+  "author": "",
+  "license": "ISC"
+}
